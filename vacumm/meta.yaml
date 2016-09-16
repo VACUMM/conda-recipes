@@ -1,0 +1,41 @@
+{% set version = "3.2.0" %}
+
+package:
+  name: vacumm
+  version: "{{ version }}"
+
+build:
+
+source:
+  git_url: https://github.com/VACUMM/vacumm.git
+  git_rev: {{ version }}
+
+requirements:
+  script: python setup.py install
+  build:
+    - python >=2.7,<3
+    - setuptools
+    - numpy <=1.9.2
+    - libgfortran
+  run:
+    - python >=2.7,<3
+    - numpy <=1.9.2
+    - libgfortran
+    - uvcdat
+    - configobj
+    - pytz
+    - paramiko
+    - pil
+    - xlutils
+    - seawater
+
+test:
+  imports:
+    - vacumm
+    - vcmq
+
+about:
+  home: https://www.ifremer.fr/vacumm
+  license: CeCILL-A
+  summary: A python library for ocean sciences
+  

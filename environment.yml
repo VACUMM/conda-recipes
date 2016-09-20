@@ -1,0 +1,22 @@
+name: vacumm
+
+channels:
+  - vacumm
+  - uvcdat
+  - defaults
+  - conda-forge
+  - ioos
+  
+dependencies:
+  - python >=2.7,<3
+  - numpy <=1.9.2
+  - libgfortran
+  - uvcdat
+  - configobj
+  - pytz
+  - paramiko
+  - pil
+  - xlutils
+  - seawater
+  - cmocean
+

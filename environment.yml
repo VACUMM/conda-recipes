@@ -3,9 +3,8 @@ name: vacumm
 channels:
   - vacumm
   - uvcdat
-  - defaults
   - conda-forge
-  - ioos
+  - defaults
   
 dependencies:
   - python >=2.7,<3
@@ -15,7 +14,6 @@ dependencies:
   - configobj
   - pytz
   - paramiko
-  - pil
   - xlutils
   - seawater
   - cmocean

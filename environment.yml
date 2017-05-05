@@ -10,7 +10,7 @@ dependencies:
   - python >=2.7,<3
   - numpy <=1.9.2
   - libgfortran
-  - uvcdat
+  - uvcdat==2.8.0
   - configobj
   - pytz
   - paramiko

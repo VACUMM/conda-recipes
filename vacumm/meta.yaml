@@ -1,5 +1,5 @@
-{% set vacumm_version = environ.get('CONDA_VACUMM_VERSION',"3.3.0") %}
-{% set pkg_buildnum = environ.get('CONDA_VACUMM_BUILDNUM',"1") %}
+{% set vacumm_version = environ.get('CONDA_VACUMM_VERSION',"3.5.0") %}
+{% set pkg_buildnum = environ.get('CONDA_VACUMM_BUILDNUM',"0") %}
 {% set git_rev = environ.get('CONDA_VACUMM_GITREV',vacumm_version) %}
 
 
@@ -10,6 +10,7 @@ package:
 build:
     script: python setup.py install
     number: {{ pkg_buildnum }}
+    string: np{{ np }}py{{ py }}_{{ pkg_buildnum }}
     
 source:
   git_url: https://github.com/VACUMM/vacumm.git
@@ -19,22 +20,20 @@ source:
 
 requirements:
   build:
-    - python >=2.7,<3
     - setuptools
-    - numpy
-    - libgfortran
+    - uvcdat
+    - matplotlib >=2.0
   run:
-    - python >=2.7,<3
-    - numpy
-    - libgfortran
-    - uvcdat ==2.8.0
+    - uvcdat
+    - matplotlib >=2.0
+    - cmocean
+    - basemap-data-hires
     - configobj
     - pytz
     - paramiko
     - xlutils
     - seawater
-    - cmocean
-    - basemap-data-hires
+    - pyqt >=4,<=5
 
 test:
   imports:

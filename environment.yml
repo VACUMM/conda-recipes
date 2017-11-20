@@ -2,19 +2,22 @@ name: vacumm
 
 channels:
   - vacumm
-  - uvcdat
   - conda-forge
+  - uvcdat
   - defaults
   
 dependencies:
   - python >=2.7,<3
-  - numpy <=1.9.2
+  - numpy
   - libgfortran
-  - uvcdat==2.8.0
+  - uvcdat
+  - matplotlib >=2.0
+  - basemap-data-hires
+  - cmocean
   - configobj
   - pytz
   - paramiko
   - xlutils
   - seawater
-  - cmocean
+  - pyqt >=4,<=5
 

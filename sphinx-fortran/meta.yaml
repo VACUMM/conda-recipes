@@ -1,13 +1,14 @@
-{% set version = environ.get('CONDA_SPHINXFORTRAN_VERSION',"1.0.1") %}
-{% set pkg_buildnum = environ.get('CONDA_SPHINXFORTRAN_BUILDNUM',"1") %}
+{% set version = environ.get('CONDA_SPHINXFORTRAN_VERSION',"1.1.1") %}
+{% set pkg_buildnum = environ.get('CONDA_SPHINXFORTRAN_BUILDNUM',"0") %}
 
 package:
   name: sphinx-fortran
   version: "{{ version }}"
 
 build:
-  script: python setup.py install
-  string: {{ pkg_buildnum }}
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+  number: {{ pkg_buildnum }}
 
 source:
   git_url: https://github.com/VACUMM/sphinx-fortran.git
@@ -15,14 +16,15 @@ source:
 
 requirements:
   build:
-    - python >=2.7,<3
+    - python # >=2.7
     - setuptools
-    - numpy
     - sphinx
+    - pip
   run:
-    - python >=2.7,<3
+    - python #>=2.7
     - numpy
     - sphinx
+    - six
 
 test:
   imports:
@@ -33,4 +35,5 @@ about:
   home: http://sphinx-fortran.readthedocs.org
   license: CeCILL
   summary: Fortran domain and auto-documenter for Sphinx
-  
+  dev_url: https://github.com/VACUMM/sphinx-fortran
+
